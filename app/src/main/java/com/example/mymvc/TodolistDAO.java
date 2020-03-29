@@ -8,6 +8,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import static com.example.mymvc.DBHelper.COLUMN_ID;
 import static com.example.mymvc.DBHelper.COLUMN_PASSWORD;
 import static com.example.mymvc.DBHelper.COLUMN_USERNAME;
 import static com.example.mymvc.DBHelper.TABLE_NAME;
@@ -54,5 +55,18 @@ public class TodolistDAO {
         contentValues.put(COLUMN_PASSWORD, password);
         long result = database.insert(TABLE_NAME, null,contentValues);
         return  result != -1;
+    }
+
+    //+ " ORDER BY " + COLUMN_ID +" ASC "
+    public ArrayList<String> getalluser(){
+        ArrayList<String> todoList = new ArrayList<String>();
+        Cursor cursor = database.rawQuery("SELECT * FROM "+ TABLE_NAME +";",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            todoList.add(cursor.getString(0)+"   :   "+cursor.getString(1)+"   :   "+cursor.getString(2));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return todoList;
     }
 }

@@ -26,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+            }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 String us = String.valueOf(username.getText());
                 String pw = String.valueOf(password.getText());
                 textshow.setText(us);

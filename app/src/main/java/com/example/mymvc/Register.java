@@ -23,6 +23,7 @@ public class Register extends AppCompatActivity {
         donregis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String username = String.valueOf(usernameregis.getText());
                 String password = String.valueOf(passwordregit.getText());
                 TodolistDAO todolistDAO = new TodolistDAO(getApplicationContext());
